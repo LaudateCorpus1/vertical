@@ -1,0 +1,45 @@
+Menu["Mathematica", 
+{
+	Menu["&File", 
+	{
+		MenuItem["&Notebook", "New", MenuKey["n", Modifiers->{"Control"}]],
+		MenuItem["Open", "MenuListOpenItems", MenuAnchor->True],
+		MenuItem["&Close", "Close", MenuKey["w", Modifiers->{"Control"}]],
+		MenuItem["Save", "MenuListSaveItems", MenuAnchor->True],
+		MenuItem["E&xit", "FrontEndQuit"]
+	}],
+	Menu["&Edit", 
+	{
+		MenuItem["&Copy", "Copy", MenuKey["c", Modifiers->{"Control"}]],
+		MenuItem["&Paste", FrontEnd`Paste[Automatic], MenuKey["v", Modifiers->{"Control"}]],
+		MenuItem["Cu&t", "Cut", MenuKey["x", Modifiers->{"Control"}]],
+		MenuItem["&Undo", "Undo", MenuKey["z", Modifiers->{"Control"}]],
+		MenuItem["Clea&r\tDelete", "Clear"],
+		MenuItem["Select &All", "SelectAll", MenuKey["a", Modifiers->{"Control"}]],
+	}],
+	Menu["E&valuation", 
+	{
+		MenuItem["&Evaluate Cells\tShift+Enter", "EvaluateCells"(* key in KeyEventTranslations.tr *)],
+		MenuItem["Evaluate in &Place", FrontEnd`Evaluate[All], MenuKey["Return", Modifiers->{"Control", "Shift"}]],
+		MenuItem["Evaluate N&otebook", "EvaluateNotebook"],
+		MenuItem["Dynamic &Updating Enabled", "ToggleDynamicUpdating"],
+		MenuItem["&Abort Evaluation", FrontEnd`EvaluatorAbort[Automatic], MenuKey[".", Modifiers->{"Command"}]],
+		MenuItem["&Remove from Evaluation Queue", "RemoveFromEvaluationQueue", MenuKey[".", Modifiers->{"Command", "Shift"}]],
+		MenuItem["Find Currentl&y Evaluating Cell", "FindEvaluatingCell"],
+		Menu["&Start Kernel", 
+		{
+			MenuItem["First Start Kernel", "MenuListStartEvaluators", MenuAnchor->True]
+		}],
+		Menu["&Quit Kernel", 
+		{
+			MenuItem["First Quit Kernel", "MenuListQuitEvaluators", MenuAnchor->True]
+		}]
+	}],
+	HelpMenu["&Help", 
+	{
+		MenuItem["Wolfram &Documentation", "OpenHelpLink"],
+		MenuItem["&Find Selected Function", FrontEnd`SelectionHelpDialog[True], MenuKey["F1", Modifiers->{}]],
+		MenuItem["Welcome &Screen...", "WelcomeDialog"],
+		MenuItem["&About Mathematica...", "AboutBoxDialog"]
+	}]
+}]
